@@ -19,6 +19,8 @@ public class MapTest {
         System.out.println(count);
         list.forEach(System.out::println);
 
+        list.forEach(e->e="1");
+        list.forEach(System.out::println);
         List<String> collect1 = list.stream().map(x -> x + "asdf").collect(Collectors.toList());
         collect1.stream().forEach(System.out::println);
     }
