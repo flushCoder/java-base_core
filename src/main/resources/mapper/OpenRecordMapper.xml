@@ -21,4 +21,14 @@
     <select id="getRecord" resultMap="openRecordMap">
         select * from open_record
     </select>
+
+    <update id="updateOpenTest" parameterType="java.util.Map">
+        UPDATE open_test
+        <set>
+            <if test="callbackTime">
+                callback_time = #{callbackTime},
+            </if>
+        </set>
+        where id = 1
+    </update>
 </mapper>

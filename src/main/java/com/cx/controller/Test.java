@@ -21,8 +21,7 @@ public class Test {
     @GetMapping("/demo1")
     @ResponseBody
     public String demo1(){
-        String str = "";
-        Object record = openRecordService.getRecord();
-        return JSON.toJSONString(record);
+        openRecordService.test();
+        return "";
     }
 }
