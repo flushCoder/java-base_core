@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 
 @Controller
 @RequestMapping("/v1")
-public class Test {
+public class DTest {
 
     @Autowired
     private OpenRecordService openRecordService;

@@ -23,12 +23,10 @@
     </select>
 
     <update id="updateOpenTest" parameterType="java.util.Map">
-        UPDATE open_test
-        <set>
-            <if test="callbackTime">
-                callback_time = #{callbackTime},
-            </if>
-        </set>
+        UPDATE open_test set
+
+                callback_time = now()
+
         where id = 1
     </update>
 </mapper>
