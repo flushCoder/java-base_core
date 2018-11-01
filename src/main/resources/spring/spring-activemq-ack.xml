@@ -61,5 +61,6 @@
         <property name="connectionFactory" ref="connectionFactoryOne" />
         <property name="destination" ref="destinationOne" />
         <property name="messageListener" ref="consumerMessageListenerOfOne" />
+        <property name="sessionAcknowledgeMode" value="4"></property> <!--表示只确认"单条消息",无论在任何ACK_MODE下-->
     </bean>
 </beans>

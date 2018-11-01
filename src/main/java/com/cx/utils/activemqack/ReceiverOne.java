@@ -13,6 +13,7 @@ public class ReceiverOne  implements MessageListener {
             String endStr = textMsg.getText();
             Integer endInt = Integer.parseInt(endStr);
             System.out.println("消息：==="+endInt);
+            textMsg.acknowledge();
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("异常信息是：===：" + e.getMessage());
