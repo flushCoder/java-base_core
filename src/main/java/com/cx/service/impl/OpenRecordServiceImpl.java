@@ -7,6 +7,7 @@ import com.cx.utils.activemq.AmqSenderService;
 import com.cx.utils.activemq.MqParamDto;
 import com.cx.utils.activemqack.SenderOne;
 import com.cx.utils.rabbitmq.MQProducer;
+import com.cx.utils.redis.RedisUtil;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,7 @@ public class OpenRecordServiceImpl implements OpenRecordService{
         System.out.println("ok");*/
 
         senderOne.sendInfo("10","2");
+        /*RedisUtil.rank();
+        System.out.println(RedisUtil.get("name"));*/
     }
 }
