@@ -1,5 +1,6 @@
 package com.cx.utils.activemqack;
 
+import com.alibaba.fastjson.JSON;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
@@ -9,6 +10,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
 import javax.jms.TextMessage;
+import java.util.Map;
 
 @Service("senderOne")
 public class SenderOneImpl implements SenderOne {
@@ -17,11 +19,11 @@ public class SenderOneImpl implements SenderOne {
     private JmsTemplate jmsTemplateOne;
 
     //测试的
-    public void sendInfo(String messageRecord,String flag) {
+    public void sendInfo(String messageRecord) {
         jmsTemplateOne.send(new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {
                 TextMessage message = session.createTextMessage(messageRecord);
-                System.out.println("111111");
+                System.out.println("发送中："+System.currentTimeMillis());
                 return message;
             }
         });

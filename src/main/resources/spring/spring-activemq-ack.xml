@@ -11,8 +11,20 @@
     <!--创建连接工厂 -->
     <bean id="connectionFactoryOne" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL" value="tcp://192.168.2.162:61616"></property>
-        <property name="redeliveryPolicy" ref="activeMQRedeliveryPolicy" />  <!-- 引用重发机制 -->
+        <!-- 是否异步发送 -->
+        <property name="useAsyncSend" value="true"/>
+        <!-- 引用重发机制 -->
+        <property name="redeliveryPolicy" ref="activeMQRedeliveryPolicy" />
     </bean>
+
+    <!--
+         ActiveMQ为我们提供了一个PooledConnectionFactory，通过往里面注入一个ActiveMQConnectionFactory
+         可以用来将Connection、Session和MessageProducer池化，这样可以大大的减少我们的资源消耗,要依赖于 activemq-pool包
+      -->
+    <!--<bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
+        <property name="connectionFactory" ref="connectionFactoryOne"/>
+        <property name="maxConnections" value="10"/>
+    </bean>-->
 
     <!-- 声明ActiveMQ消息目标,目标可以是一个队列，也可以是一个主题ActiveMQTopic -->
     <!--此消息目标是 点对点-->
@@ -44,13 +56,6 @@
         <property name="maximumRedeliveryDelay" value="1000"></property>
     </bean>
 
-
-    <!-- 配置消费者 start -->
-    <bean id="receiverOne" class="com.cx.utils.activemqack.ReceiverOne">
-        <!-- <property name="jmsTemplate" ref="jmsTemplate"></property> -->
-    </bean>
-    <!-- 配置消费者 end -->
-
     <!-- 消息监听器 -->
     <bean id="consumerMessageListenerOfOne" class="com.cx.utils.activemqack.ReceiverOne" />
 
@@ -59,6 +64,8 @@
         <property name="connectionFactory" ref="connectionFactoryOne" />
         <property name="destination" ref="destinationOne" />
         <property name="messageListener" ref="consumerMessageListenerOfOne" />
+        <!--<property name="sessionTransacted" value="true" />--> <!--事务处理-->
         <property name="sessionAcknowledgeMode" value="4"></property> <!--表示只确认"单条消息",无论在任何ACK_MODE下-->
     </bean>
+
 </beans>

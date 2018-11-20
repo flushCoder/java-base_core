@@ -44,7 +44,8 @@ public class OpenRecordServiceImpl implements OpenRecordService{
         amqSenderService.sendMsg(mqParamDto);
         System.out.println("ok");*/
 
-        senderOne.sendInfo("10","2");
+        senderOne.sendInfo("10");
+        System.out.println("发送完毕："+System.currentTimeMillis());
         /*RedisUtil.rank();
         System.out.println(RedisUtil.get("name"));*/
     }

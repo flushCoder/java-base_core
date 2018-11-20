@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cx.dao.RepaymentPlanDao">
+    <resultMap id="BaseResultMap" type="com.cx.bean.RepaymentPlan">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="serial_no" jdbcType="VARCHAR" property="serialNo"/>
+        <result column="apply_id" jdbcType="BIGINT" property="applyId"/>
+        <result column="out_order_no" jdbcType="VARCHAR" property="outOrderNo"/>
+        <result column="contract_no" jdbcType="VARCHAR" property="contractNo"/>
+        <result column="loan_amount" jdbcType="DECIMAL" property="loanAmount"/>
+        <result column="loan_rate" jdbcType="DECIMAL" property="loanRate"/>
+        <result column="funds_id" jdbcType="INTEGER" property="fundsId"/>
+        <result column="product_id" jdbcType="INTEGER" property="productId"/>
+        <result column="provider_id" jdbcType="INTEGER" property="providerId"/>
+        <result column="scene_id" jdbcType="INTEGER" property="sceneId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="cid" jdbcType="VARCHAR" property="cid"/>
+        <result column="mobile" jdbcType="VARCHAR" property="mobile"/>
+        <result column="card" jdbcType="VARCHAR" property="card"/>
+        <result column="term" jdbcType="TINYINT" property="term"/>
+        <result column="due_amount" jdbcType="DECIMAL" property="dueAmount"/>
+        <result column="due_capital" jdbcType="DECIMAL" property="dueCapital"/>
+        <result column="due_interest" jdbcType="DECIMAL" property="dueInterest"/>
+        <result column="due_fine" jdbcType="DECIMAL" property="dueFine"/>
+        <result column="due_service" jdbcType="DECIMAL" property="dueService"/>
+        <result column="due_date" jdbcType="DATE" property="dueDate"/>
+        <result column="actual_amount" jdbcType="DECIMAL" property="actualAmount"/>
+        <result column="actual_capital" jdbcType="DECIMAL" property="actualCapital"/>
+        <result column="actual_interest" jdbcType="DECIMAL" property="actualInterest"/>
+        <result column="actual_fine" jdbcType="DECIMAL" property="actualFine"/>
+        <result column="actual_service" jdbcType="DECIMAL" property="actualService"/>
+        <result column="reduce_service" jdbcType="DECIMAL" property="reduceService"/>
+        <result column="reduce_fine" jdbcType="DECIMAL" property="reduceFine"/>
+        <result column="repayment_date" jdbcType="DATE" property="repaymentDate"/>
+        <result column="remain_total" jdbcType="DECIMAL" property="remainTotal"/>
+        <result column="remain_capital" jdbcType="DECIMAL" property="remainCapital"/>
+        <result column="remain_interest" jdbcType="DECIMAL" property="remainInterest"/>
+        <result column="remain_fine" jdbcType="DECIMAL" property="remainFine"/>
+        <result column="remain_service" jdbcType="DECIMAL" property="remainService"/>
+        <result column="repayment_flag" jdbcType="TINYINT" property="repaymentFlag"/>
+        <result column="interest_start" jdbcType="DATE" property="interestStart"/>
+        <result column="interest_end" jdbcType="DATE" property="interestEnd"/>
+        <result column="valid" jdbcType="TINYINT" property="valid"/>
+        <result column="fine_status" jdbcType="TINYINT" property="fineStatus"/>
+        <result column="check_out" jdbcType="VARCHAR" property="checkOut"/>
+        <result column="bank_flow" jdbcType="VARCHAR" property="bankFlow"/>
+        <result column="overdue_days" jdbcType="INTEGER" property="overdueDays"/>
+        <result column="orverdue_update_time" jdbcType="TIMESTAMP" property="orverdueUpdateTime"/>
+        <result column="settle_repayment" jdbcType="DECIMAL" property="settleRepayment"/>
+        <result column="loan_date" jdbcType="DATE" property="loanDate"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_date" jdbcType="DATE" property="createDate"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="fine_update_time" jdbcType="TIMESTAMP" property="fineUpdateTime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, serial_no, apply_id, out_order_no, contract_no, loan_amount,loan_rate, funds_id, product_id, provider_id,
+    scene_id, name, cid, mobile, card, term, due_amount, due_capital, due_interest, IFNULL(due_fine,0) AS  due_fine,
+    due_service, due_date, IFNULL(actual_amount,0) AS actual_amount, actual_capital, actual_interest, actual_fine,
+    actual_service, reduce_service, reduce_fine, repayment_date, remain_total, remain_capital,
+    remain_interest, remain_fine, remain_service, repayment_flag, interest_start, interest_end,
+    valid, fine_status, check_out, bank_flow, overdue_days, orverdue_update_time,
+    settle_repayment, loan_date,create_time, create_date, update_time, fine_update_time
+  </sql>
+
+
+    <select id="selectAllRepaymentPlan" resultMap="BaseResultMap">
+        select * from finance_repayment_plan
+    </select>
+</mapper>
