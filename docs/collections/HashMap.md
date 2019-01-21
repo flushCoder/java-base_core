@@ -6,7 +6,7 @@
 ![]()
 
 如图所示，HashMap是基于 Entry<K,V> 数组和 Entry<K,V> 单向链表实现的，是线程不安全的。  
-![实现简单的HashMap](https://github.com/changeandlove/java-base_core/blob/master/src/main/java/com/cx/collections/hashmap/MyHashMap.java)
+[实现简单的HashMap](https://github.com/changeandlove/java-base_core/blob/master/src/main/java/com/cx/collections/hashmap/MyHashMap.java)  
 其中参数为：
 
 - 默认初始容量（**DEFAULT_INITIAL_CAPACITY**）
