@@ -1,18 +1,17 @@
-package com.cx.collections;
+package com.cx.collections.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author:无名
- */
+
 public class MyHashMap {
 
     public void test(){
 
-        HashMap map = new HashMap<String, String>();
-        map.put("", "");
-        map.get("");
+        Map<String, String> map = new HashMap<String, String>();
+        HashMap hashMap = new HashMap(map);
+        hashMap.put("", "");
+        hashMap.get("");
         System.out.println(1 << 4);
     }
 
