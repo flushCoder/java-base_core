@@ -1,9 +1,12 @@
 # HashMap源码分析
-> 基于JDK1.7
+> 基于JDK1.7  
+ 
+此链接是[基于JDK1.8的HashMap](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/HashMap8.md)  
 
 ![]()
 
-如图所示，HashMap是基于 Entry<K,V> 数组和 Entry<K,V> 单向链表实现的，是线程不安全的。其中参数为：
+如图所示，HashMap是基于 Entry<K,V> 数组和 Entry<K,V> 单向链表实现的，是线程不安全的。  
+其中参数为：
 
 - 默认初始容量（**DEFAULT_INITIAL_CAPACITY**）
 - 最大容量（**MAXIMUM_CAPACITY**）
@@ -87,7 +90,7 @@
 
 ```
 
-- HashMap确定数组下标计算方式
+- HashMap确定数组下标计算方式  
   [HashMap确定数组下标计算方式](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/IndexFor.md)
 - 当Key是null时，插在 **table[0]** 位置
 ```java
