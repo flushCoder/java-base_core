@@ -88,7 +88,7 @@
 ```
 
 - HashMap确定数组下标计算方式
-  [HashMap确定数组下标计算方式](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/hashmap/IndexFor.md)
+  [HashMap确定数组下标计算方式](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/IndexFor.md)
 - 当Key是null时，插在 **table[0]** 位置
 ```
     putForNullKey(value);
