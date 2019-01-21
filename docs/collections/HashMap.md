@@ -16,7 +16,7 @@
 # 构造方法
 
 - 自定义初始值和重载因子的构造方法
-```
+```java
      public HashMap(int initialCapacity, float loadFactor) {
             if (initialCapacity < 0)
                 throw new IllegalArgumentException("Illegal initial capacity: " +
@@ -73,7 +73,7 @@
     }
 ```
 - Entry<K,V>数组为空时，把初始容量置为大于等于当前初始值的最小2的幂次方，重置重载阈值大小，重置数组容量
-```
+```java
     inflateTable(threshold);
     
     private void inflateTable(int toSize) {
@@ -90,7 +90,7 @@
 - HashMap确定数组下标计算方式
   [HashMap确定数组下标计算方式](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/IndexFor.md)
 - 当Key是null时，插在 **table[0]** 位置
-```
+```java
     putForNullKey(value);
     
     private V putForNullKey(V value) {
@@ -113,7 +113,7 @@
   1、初始化原长度2倍的数组  
   2、循环旧的数组，因为是链表，将下一个节点赋值到临时变量  
   3、根据新的数组长度，重新计算数组下标，用头插法把节点插入链表中  
-```
+```java
     void addEntry(int hash, K key, V value, int bucketIndex) {
         if ((size >= threshold) && (null != table[bucketIndex])) {
             resize(2 * table.length);
