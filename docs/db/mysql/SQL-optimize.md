@@ -1,5 +1,7 @@
 #SQL优化总结
-
+    
+   可以用 EXPLAIN 命令捕捉性能问题,查看是否命中索引  
+   [EXPLAIN 命令详解](https://www.cnblogs.com/gomysql/p/3720123.html)
 - 不能使用索引归纳  
 1、负向查询不使用索引  
     ```sql
