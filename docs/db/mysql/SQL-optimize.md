@@ -1,4 +1,4 @@
-#SQL优化总结
+# SQL优化总结
     
    可以用 EXPLAIN 命令捕捉性能问题,查看是否命中索引  
    [EXPLAIN 命令详解](https://www.cnblogs.com/gomysql/p/3720123.html)
