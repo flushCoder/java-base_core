@@ -91,8 +91,8 @@
 
 ```
 
-- HashMap确定数组下标计算方式  
-  [HashMap确定数组下标计算方式](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/IndexFor.md)
+- HashMap确定数组下标计算方式与HashMap1.8扩容Entry数组转移原理   
+  [HashMap确定数组下标计算方式与HashMap1.8扩容Entry数组转移原理](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/IndexFor.md)
 - 当Key是null时，插在 **table[0]** 位置
 ```java
     putForNullKey(value);
