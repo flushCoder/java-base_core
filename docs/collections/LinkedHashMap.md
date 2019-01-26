@@ -8,7 +8,8 @@ LinkedHashMap的排序方式有两种:
 - 根据访问顺序
 
 ### 数据结构
-
+如图,在HashMap结构基础上,LinkedHashMap用双向链表维护它的有序性:
+![](https://github.com/changeandlove/java-base_core/blob/master/picture/collection/linkedHashMap_data_strcture.jpg)
 ### PUT方法
 
 ### GET方法
