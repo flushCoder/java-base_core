@@ -10,6 +10,38 @@ LinkedHashMap的排序方式有两种:
 ### 数据结构
 如图,在HashMap结构基础上,LinkedHashMap用双向链表维护它的有序性:
 ![](https://github.com/changeandlove/java-base_core/blob/master/picture/collection/linkedHashMap_data_strcture.jpg)
+
+```java
+public class LinkedHashMap<K,V>
+    extends HashMap<K,V>
+    implements Map<K,V>
+{
+
+    private static final long serialVersionUID = 3801124242820219131L;
+
+    /**
+     * The head of the doubly linked list.
+     */
+    private transient Entry<K,V> header;
+    
+    //此处省略......
+    
+}
+private static class Entry<K,V> extends HashMap.Entry<K,V> { 
+    // These fields comprise the doubly linked list used for iteration.
+    Entry<K,V> before, after;
+
+    Entry(int hash, K key, V value, HashMap.Entry<K,V> next) {
+        super(hash, key, value, next); 
+    }
+    
+    //此处省略......
+}
+```
+
+其中 **Entry** 继承于 **HashMap** 的 **Entry**，并新增了上下节点的指针(**before**, **after**)，也就形成了双向链表。  
+还有一个 **header** 的成员变量，是这个双向链表的头结点。
+### 构造方法
 ### PUT方法
 
 ### GET方法
