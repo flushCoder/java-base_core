@@ -1,5 +1,6 @@
 ### 常用集合
 - [HashMap](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/HashMap.md)
+- [LinkedHashMap](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/LinkedHashMap.md)
 
 
 ### 数据库相关
