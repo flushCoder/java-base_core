@@ -42,6 +42,17 @@ private static class Entry<K,V> extends HashMap.Entry<K,V> {
 其中 **Entry** 继承于 **HashMap** 的 **Entry**，并新增了上下节点的指针(**before**, **after**)，也就形成了双向链表。  
 还有一个 **header** 的成员变量，是这个双向链表的头结点。
 ### 构造方法
+```java
+ @Override
+ void init() {
+     header = new Entry<>(-1, null, null, null);
+     header.before = header.after = header;
+ }
+```
+在无参构造方法中**LinkedHashMap**和**HashMap**完全一样,只是重写和**init**方法,初始化一个空的**header**。  
+根据**accessOrder**参数可设置**LinkedHashMap**的顺序:
+为true时:根据访问顺序  
+为false时:根据写入顺序
 ### PUT方法
 
 ### GET方法
