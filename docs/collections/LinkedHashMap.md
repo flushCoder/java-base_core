@@ -50,16 +50,125 @@ private static class Entry<K,V> extends HashMap.Entry<K,V> {
  }
 ```
 在无参构造方法中**LinkedHashMap**和**HashMap**完全一样,只是重写和**init**方法,初始化一个空的**header**。  
-根据**accessOrder**参数可设置**LinkedHashMap**的顺序:
+根据**accessOrder**参数可设置**LinkedHashMap**的顺序:  
 为true时:根据访问顺序  
 为false时:根据写入顺序
 ### PUT方法
+源码为:
+```java
+public V put(K key, V value) {
+    if (table == EMPTY_TABLE) {
+        inflateTable(threshold);
+    }
+    if (key == null)
+        return putForNullKey(value);
+    int hash = hash(key);
+    int i = indexFor(hash, table.length);
+    for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+            V oldValue = e.value;
+            e.value = value;
+            //当进行value覆盖时,LinkedHashMap对此方法进行了重写
+            e.recordAccess(this);
+            return oldValue;
+        }
+    }
 
+    modCount++;
+    addEntry(hash, key, value, i);
+    return null;
+}
+```
+主体的实现都是借助于 **HashMap** 来完成的，只是对其中的 **recordAccess()**, **addEntry()**, **createEntry()** 进行了重写。
+
+```java
+//LinkedHashMap对此方法进行了重写
+//当accessOrder为true时,将此节点在原来的位置删除,并且把此节点插入到头结点处
+//当accessOrder为false时,不删除此节点,此节点位置不变,只是值发生改变
+void recordAccess(HashMap<K,V> m) {
+    LinkedHashMap<K,V> lm = (LinkedHashMap<K,V>)m;
+    if (lm.accessOrder) {
+        lm.modCount++;
+        remove();
+        addBefore(lm.header);
+    }
+}
+
+private void remove() {
+    before.after = after;
+    after.before = before;
+}
+
+private void addBefore(Entry<K,V> existingEntry) {
+    after  = existingEntry;
+    before = existingEntry.before;
+    before.after = this;
+    after.before = this;
+}
+```
+
+```java
+//HashMap的addEntry方法
+void addEntry(int hash, K key, V value, int bucketIndex) {
+    if ((size >= threshold) && (null != table[bucketIndex])) {
+        resize(2 * table.length);
+        hash = (null != key) ? hash(key) : 0;
+        bucketIndex = indexFor(hash, table.length);
+    }
+
+    createEntry(hash, key, value, bucketIndex);
+}
+
+//此createEntry方法是LinkedHashMap方法进行了重写
+void createEntry(int hash, K key, V value, int bucketIndex) {
+    HashMap.Entry<K,V> old = table[bucketIndex];
+    Entry<K,V> e = new Entry<>(hash, key, value, old);
+    table[bucketIndex] = e;
+    //将新的节点插入到头结点处
+    e.addBefore(header);
+    size++;
+}
+
+//LinkedHashMap的addEntry方法对HashMap的addEntry方法进行了重写
+void addEntry(int hash, K key, V value, int bucketIndex) {
+    super.addEntry(hash, key, value, bucketIndex);
+    // Remove eldest entry if instructed
+    //获取链表尾节点
+    Entry<K,V> eldest = header.after;
+    //LinkedHashMap中默认为false,不对尾节点进行删除,可自行重写此方法实现LRU
+    if (removeEldestEntry(eldest)) {
+        removeEntryForKey(eldest.key);
+    }
+}
+```
 ### GET方法
+```java
+//次方法重写了HashMap的get方法
+public V get(Object key) {
+    Entry<K,V> e = (Entry<K,V>)getEntry(key);
+    if (e == null)
+        return null;
+    e.recordAccess(this);
+    return e.value;
+}
 
+//当accessOrder为true时,将此节点从原来节点处删除,并加到头节点
+void recordAccess(HashMap<K,V> m) {
+    LinkedHashMap<K,V> lm = (LinkedHashMap<K,V>)m;
+    if (lm.accessOrder) {
+        lm.modCount++;
+        remove();
+        addBefore(lm.header);
+    }
+}
+```
 ### 两种排序方式
-
+根据**accessOrder**参数可设置**LinkedHashMap**的顺序:  
+为true时:根据访问顺序  
+为false时:根据写入顺序
 ### 使用LinkedHashMap实现LRU算法
 - LRU算法 ：  
-LRU（**Least recently used**，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是: 如果数据最近被访问过，那么将来被访问的几率也更高 
+LRU（**Least recently used**，最近最少使用）算法根据数据的历史访问记录来进行淘汰数据，其核心思想是: 如果数据最近被访问过，那么将来被访问的几率也更高   
+可继承**LinkedHashMap**中的**removeEldestEntry**方法,返回为true即可
 
