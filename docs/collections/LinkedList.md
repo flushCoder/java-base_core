@@ -2,6 +2,20 @@
 如图LinkedList是基于双向链表实现的:  
 ![](https://github.com/changeandlove/java-base_core/blob/master/picture/collection/LinkedList_structure.jpg)
 
+```java
+private static class Node<E> {
+    E item;
+    Node<E> next;
+    Node<E> prev;
+
+    Node(Node<E> prev, E element, Node<E> next) {
+        this.item = element;
+        this.next = next;
+        this.prev = prev;
+    }
+}
+```
+每个节点是由前节点 **prev**,后节点 **next**,元素 **element** 组成
 ### 新增方法
 源码如下:
 ```java
