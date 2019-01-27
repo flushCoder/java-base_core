@@ -1,6 +1,6 @@
 # LinkedList底层分析
 如图LinkedList是基于双向链表实现的:  
-![](https://github.com/changeandlove/java-base_core/blob/master/picture/collection/linkedList_structure.jpg)
+![](https://github.com/changeandlove/java-base_core/blob/master/picture/collection/LinkedList_structure.jpg)
 
 ### 新增方法
 源码如下:
