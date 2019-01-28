@@ -5,6 +5,9 @@
 - [LinkedHashMap](https://github.com/flushCoder/java-base_core/tree/master/docs/collections/LinkedHashMap.md)
 - [HashSet](https://github.com/flushCoder/java-base_core/tree/master/docs/collections/HashSet.md)
 - [LinkedHashSet](https://github.com/flushCoder/java-base_core/tree/master/docs/collections/LinkedHashSet.md)
+
 ### 数据库相关
 - [MySQL索引数据结构](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/IndexDataStructure.md)
 - [MySQL优化](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/SQL-optimize.md)
+
+### Redis
