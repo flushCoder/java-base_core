@@ -15,7 +15,7 @@ public HashSet() {
     map = new HashMap<>();
 }
 ```
-HashSet底层维护了一个HashMap,[HashMap底层分析](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/HashMap.md)
+HashSet底层维护了一个HashMap,[HashMap底层分析](https://github.com/flushCoder/java-base_core/tree/master/docs/collections/HashMap.md)
 
 ### add方法
 ```java

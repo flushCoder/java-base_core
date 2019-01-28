@@ -1,7 +1,7 @@
 # MySQL索引数据结构
 
 索引是一种可以优化查询的数据结构,MySQL中的索引使用B+树实现的。  
-[SQL优化总结](https://github.com/changeandlove/java-base_core/tree/master/docs/db/mysql/SQL-optimize.md)
+[SQL优化总结](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/SQL-optimize.md)
 ### Hash 索引的特点(可以快速精确查询,不支持范围查询)  
 Hash 索引只能够用于相等比较(速度更快)。Hash 索引不能够用于诸如 < 等用于查找一个范围值的比较运算符。依赖于这种单值查找的系统被称为 “键-值存储”；对于这种系统，尽可能地使用 hash 索引。  
 查找某行记录必须进行全键匹配。而 B-tree 索引，任何该键的左前缀都可用以查找记录。 

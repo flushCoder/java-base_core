@@ -1,6 +1,6 @@
 # LinkedHashMap底层分析
 
-由[HashMap底层分析](https://github.com/changeandlove/java-base_core/tree/master/docs/collections/HashMap.md)得知,因为每次 **put** 操作是根据 **key** 的 **hashcode** 映射到 **Entry** 数组上，所以遍历出来的顺序并不是写入的顺序。  
+由[HashMap底层分析](https://github.com/flushCoder/java-base_core/tree/master/docs/collections/HashMap.md)得知,因为每次 **put** 操作是根据 **key** 的 **hashcode** 映射到 **Entry** 数组上，所以遍历出来的顺序并不是写入的顺序。  
 LinkedHashMap是基于HashMap实现的有序Map,LinkedHashMap继承于HashMap,是在Entry中增加了after和before形成双向链表来维护Entry的顺序。  
 
 LinkedHashMap的排序方式有两种:
@@ -9,7 +9,7 @@ LinkedHashMap的排序方式有两种:
 
 ### 数据结构
 如图,在HashMap结构基础上,LinkedHashMap用双向链表维护它的有序性:
-![](https://github.com/changeandlove/java-base_core/blob/master/picture/collection/linkedHashMap_data_strcture.jpg)
+![](https://github.com/flushCoder/java-base_core/blob/master/picture/collection/linkedHashMap_data_strcture.jpg)
 
 ```java
 public class LinkedHashMap<K,V>
