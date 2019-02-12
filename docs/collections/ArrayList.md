@@ -102,7 +102,7 @@ private void grow(int minCapacity) {
 ```java
 transient Object[] elementData; // non-private to simplify nested class access
 ```
->当对象中自定义了 writeObject 和 readObject 方法时，JVM 会调用这两个自定义方法来实现序列化与反序列化。  
+>当对象中自定义了 writeObject 和 readObject 方法时(必须要实现serilizebal接口)，JVM 会调用这两个自定义方法来实现序列化与反序列化。  
 
 所以可以看出ArrayList 只序列化了被使用的元素
 ```java
