@@ -12,6 +12,7 @@ Hash 索引只能够用于相等比较(速度更快)。Hash 索引不能够用�
   相对于B树,B+ Tree 的非叶子节点不存储数据只存元素,只有叶子节点储存元素和数据,而子B树的叶子节点和非叶节点都储存元素和数据  
   
 ### InnoDB中的B+树和MyiSAM中的B+树  
-  MyiSAM中叶子节点的数据区域存储的是数据记录的地址  
-  InnoDB中叶子节点的数据区域储存的是真实的数据记录,因此InnoDB的查询效率要比MyiSAM的查询效率高(少一次I/O)
-
+  InnoDB中叶子节点的数据区域储存的是真实的数据记录(聚集索引),因此InnoDB的查询效率要比MyiSAM的查询效率高(少一次I/O)
+  ![](https://github.com/flushCoder/java-base_core/blob/master/picture/db/Innodb.jpg)
+  MyiSAM中叶子节点的数据区域存储的是数据记录的地址(非聚集索引)
+  ![](https://github.com/flushCoder/java-base_core/blob/master/picture/db/MyISAM.jpg)

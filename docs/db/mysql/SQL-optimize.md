@@ -29,7 +29,12 @@
     ```sql
     select name from user where create_time < FROM_UNIXTIME(CURDATE());
     ```
-### 复合索引的最左前缀  
+### 复合索引
+- 复合索引数据结构  
+复合索引在文件中的存储方式是按照索引字段从左到右依次排序  
+ ![](https://github.com/flushCoder/java-base_core/blob/master/picture/db/JointIndex.jpg)
+ 
+    
 - 最左前缀  
 复合索引中的字段需要从左到右出现在查询条件中，中间字段不能存在范围查询的字段(**<**,**like**,**not in()**等,可以使用**in()**)，这样的sql可以使用该多列索引。  
 根据业务场景条件中使用最频繁的字段放到符合索引的第一位  
@@ -43,7 +48,11 @@
     ```sql
     select username from user where pwd ='axsedf1sd'; --不含有符合索引的第一个元素
     ```
-
+- 复合索引可以让第二个索引字段排序  
+当以第一个符合索引字段为查询条件，以第二个字段为排序字段，以下例子是(age,create_time符合索引
+  ```sql
+  select * from test where age = 20 order by create_time;
+  ```
 ### 如果明确只有一条记录返回  
  ```sql
 select name from user where username = 'zhangsan' limit 1;
