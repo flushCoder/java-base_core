@@ -9,5 +9,5 @@
 ### 数据库相关
 - [MySQL索引数据结构](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/IndexDataStructure.md)
 - [MySQL优化](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/SQL-optimize.md)
-- [Mysql的脏读、幻读、不可重复读及隔离级别](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Others.md)
-- [Mysql的锁机制](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Lock.md)
+- [MySQL的脏读、幻读、不可重复读及隔离级别](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Others.md)
+- [MySQL的锁机制](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Lock.md)
