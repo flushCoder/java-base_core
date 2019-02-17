@@ -28,4 +28,4 @@
 - 串行化(Serializble)
 读操作会隐式获取共享锁，可以保证不同事务间的互斥  
 
-![](https://github.com/flushCoder/java-base_core/blob/master/picture/db/isolation.jpg)
+![](https://github.com/flushCoder/java-base_core/blob/master/picture/db/isolation.png)
