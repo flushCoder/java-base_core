@@ -78,7 +78,7 @@ select name from user where username = 'zhangsan' limit 1;
   当ORDER BY的字段是索引时,根据B+ Tree 特点(叶子节点相互指向且有序的),查询出的数据已经是排好序的 
 
   ORDER BY字段不是索引(birthday)字段时:  
-  ![](https://github.com/flushCoder/java-base_core/blob/master/picture/db/order_by_action.jpg)
+  ![](https://github.com/flushCoder/java-base_core/blob/master/picture/db/order_by_action.png)
   **双路排序:**  
   读取行指针和order by列到Sort buffer中,对他们进行排序,然后扫描已经排序好的指针,按照指针的地址再次去列表中读取对应的数据输出  
   双路排序开销相对较大,因为两次从列表中读取数据,地址不连续,会有大量随机I/O  
