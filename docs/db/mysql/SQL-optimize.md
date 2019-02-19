@@ -16,7 +16,7 @@
   select name from user where username like '%san';
   ```
   ```sql
-  select name from user where username like 'zhang%'; --后导模糊查询使用索引
+  select name from user where username like 'zhang%'; --后导模糊查询可能会使用到索引
   ```
   建议可以考虑使用 **Lucene**,**Elasticsearch** 等全文索引工具来代替频繁的模糊查询。
     
