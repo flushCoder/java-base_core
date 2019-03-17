@@ -11,6 +11,7 @@
 - [MySQL优化](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/SQL-optimize.md)
 - [MySQL的脏读、幻读、不可重复读及隔离级别](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Others.md)
 - [MySQL的锁机制](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Lock.md)
+- [MVCC原理](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Mvcc.md)
 
 ### Redis
 
