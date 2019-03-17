@@ -12,9 +12,12 @@
 - [MySQL的脏读、幻读、不可重复读及隔离级别](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Others.md)
 - [MySQL的锁机制](https://github.com/flushCoder/java-base_core/tree/master/docs/db/mysql/Lock.md)
 
+### Redis
 
-### 日常小结
-- [幂等](https://github.com/flushCoder/java-base_core/tree/master/docs/summary/idempotent.md)
 
 
 ### JDK学习
+
+
+### 日常小结
+- [幂等](https://github.com/flushCoder/java-base_core/tree/master/docs/summary/idempotent.md)
