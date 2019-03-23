@@ -18,7 +18,11 @@
 
 
 ### JDK学习
-
+- [JDK中排序总结]()
 
 ### 日常小结
 - [幂等](https://github.com/flushCoder/java-base_core/tree/master/docs/summary/idempotent.md)
+
+
+### 算法
+- [两个线程交替打印奇数偶数](https://github.com/flushCoder/java-base_core/blob/master/src/main/java/com/cx/algorithm/OddAndEven.java)
