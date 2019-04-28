@@ -15,6 +15,7 @@ public class OddAndEven {
 
         @Override
         public void run() {
+            System.out.println("sadfs");
             int i = 1;  //本线程打印奇数,则从1开始
             while (i < 100) {
                 synchronized (t) {
