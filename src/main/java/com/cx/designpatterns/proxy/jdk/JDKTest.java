@@ -30,7 +30,7 @@ public class JDKTest {
 
         //将运行时生成的字节码文件输出反编译
         byte[] by = ProxyGenerator.generateProxyClass("$Proxy0",new Class[]{JDKPerson.class});
-        FileOutputStream fos = new FileOutputStream("D://proxy.class");
+        FileOutputStream fos = new FileOutputStream("F://proxy.class");
         fos.write(by);
         fos.close();
     }
